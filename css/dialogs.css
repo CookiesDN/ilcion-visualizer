@@ -1,0 +1,123 @@
+/* Render-to-video dialog and the recording overlay. */
+
+#ov {
+  position: fixed;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--pn);
+  color: var(--fg);
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  z-index: 60;
+}
+
+#ov[hidden] {
+  display: none;
+}
+
+#ov button {
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+#rd {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: grid;
+  place-items: center;
+  z-index: 90;
+}
+
+#rd[hidden] {
+  display: none;
+}
+
+.dlg {
+  background: var(--pn);
+  color: var(--fg);
+  border: 1px solid var(--mt);
+  border-radius: 18px;
+  padding: 22px;
+  width: min(92vw,440px);
+  box-sizing: border-box;
+}
+
+.dlg h3 {
+  margin: 0 0 14px;
+  font-size: 12px;
+}
+
+.dlg label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .16em;
+  opacity: .6;
+  margin: 12px 0 6px;
+}
+
+.dlg select,
+.dlg input {
+  background: var(--mt);
+  color: var(--fg);
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 6px;
+}
+
+.dlg input[hidden] {
+  display: none;
+}
+
+#rsum {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#rsum i {
+  display: block;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: .14em;
+  opacity: .55;
+  margin-bottom: 3px;
+}
+
+#rsum b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#rsum p {
+  grid-column: 1/-1;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--pu);
+}
+
+.rb {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.rb button {
+  flex: 1;
+  padding: 11px;
+}

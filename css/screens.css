@@ -1,0 +1,143 @@
+/* Loading screen and main menu. */
+
+#ld {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  transition: opacity .45s;
+}
+
+#ld.off {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lc {
+  width: min(70vw,420px);
+  text-align: center;
+}
+
+.lc h3 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: .3em;
+}
+
+.lb {
+  height: 10px;
+  background: var(--mt);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 18px 0 12px;
+}
+
+.lb i {
+  display: block;
+  height: 100%;
+  width: 3%;
+  background: var(--pu);
+  border-radius: 6px;
+  transition: width .3s;
+}
+
+#lt {
+  font-size: 11px;
+  letter-spacing: .2em;
+  opacity: .75;
+}
+
+.by {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: .32em;
+  opacity: .55;
+}
+
+#mm {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: opacity .4s;
+}
+
+#mm.off {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mc {
+  text-align: center;
+  display: grid;
+  gap: 12px;
+  width: min(92vw,600px);
+}
+
+.mc h1 {
+  margin: 0 0 4px;
+  font-size: clamp(18px,4.4vw,34px);
+  letter-spacing: .26em;
+  font-weight: 700;
+}
+
+.mc p {
+  margin: 0 0 16px;
+  font-size: 11px;
+  letter-spacing: .22em;
+  opacity: .6;
+}
+
+.mb {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 16px;
+  background: var(--mt);
+  color: var(--fg);
+  text-decoration: none;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: .24em;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mb:hover,
+.mb.pr {
+  background: var(--pu);
+}
+
+.ht {
+  display: inline-block;
+  color: #ff4d7d;
+  margin-left: .5em;
+}
+
+.sup:hover .ht {
+  animation: pl .65s ease-in-out infinite;
+}
+
+@keyframes pl {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}

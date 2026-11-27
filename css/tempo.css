@@ -1,0 +1,103 @@
+/* Tempo panel. */
+
+#tp {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw,340px);
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  background: var(--pn);
+  border: 1px solid var(--mt);
+  border-radius: 18px;
+  padding: 16px;
+  z-index: 70;
+  box-sizing: border-box;
+}
+
+#tp[hidden] {
+  display: none;
+}
+
+#tp h3 {
+  margin: 0 0 10px;
+}
+
+.tph {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tp h3.sub {
+  margin: 16px 0 8px;
+  font-size: .78em;
+  color: var(--fg);
+  opacity: .85;
+}
+
+.tph+h3.sub {
+  margin-top: 6px;
+}
+
+.tpv {
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+  margin-bottom: 10px;
+}
+
+.tpv b {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.tpv span {
+  opacity: .6;
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+.tpr {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tpr button {
+  flex: 1;
+}
+
+.tpr input {
+  flex: 2;
+  background: var(--mt);
+  color: var(--fg);
+  border: 0;
+  border-radius: 10px;
+  padding: 9px;
+  font: inherit;
+  min-width: 0;
+}
+
+p.tn {
+  font-size: 10px;
+  letter-spacing: .1em;
+  opacity: .55;
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+.tpr select {
+  flex: 1;
+  background: var(--mt);
+  color: var(--fg);
+  border: 0;
+  border-radius: 10px;
+  padding: 9px;
+  font: inherit;
+}
+
+.tpr[hidden] {
+  display: none;
+}

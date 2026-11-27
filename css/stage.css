@@ -1,0 +1,150 @@
+/* Viewport, the 1000px logical stage, panels, drag/resize handles and edit mode. */
+
+#vp {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+}
+
+#stw {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+.sq {
+  position: relative;
+  width: 1000px;
+  background: var(--bg);
+  box-shadow: 0 0 0 1px var(--mt);
+  font-size: 12px;
+}
+
+.p {
+  position: absolute;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  background: var(--pn);
+  background-clip: padding-box;
+  border-radius: 1.6em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+.p.off {
+  display: none;
+}
+
+.cv {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.cv canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rz,
+.xx {
+  display: none;
+  position: absolute;
+}
+
+.rz {
+  right: 7px;
+  bottom: 7px;
+  width: 16px;
+  height: 16px;
+  border-right: 3px solid var(--pu);
+  border-bottom: 3px solid var(--pu);
+  border-radius: 0 0 6px 0;
+  cursor: nwse-resize;
+}
+
+.xx {
+  right: 10px;
+  top: 8px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  background: var(--mt);
+  border-radius: 50%;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.edit .rz,
+.edit .xx {
+  display: block;
+}
+
+#w_hd .xx {
+  display: none!important;
+}
+
+.edit .p {
+  outline: 2px dashed var(--pu);
+  outline-offset: -4px;
+  cursor: move;
+}
+
+.edit .p canvas {
+  pointer-events: none;
+}
+
+.edit .hd h3 {
+  pointer-events: none;
+}
+
+.msel {
+  position: absolute;
+  right: 42px;
+  top: 7px;
+  background: var(--mt);
+  color: var(--fg);
+  border: 0;
+  border-radius: 8px;
+  padding: 4px 6px;
+  font: inherit;
+  font-size: 10px;
+  z-index: 2;
+}
+
+.edit .msel {
+  pointer-events: none;
+}
+
+#vc {
+  cursor: pointer;
+}
+
+.ghost {
+  position: absolute;
+  border: 2px dashed var(--pu);
+  border-radius: 19px;
+  background: rgba(122,93,195,.12);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p.drag {
+  box-shadow: 0 14px 44px rgba(0,0,0,.5);
+  opacity: .95;
+  z-index: 999!important;
+}
+
+.p.snapping {
+  transition: left .24s ease,top .24s ease,width .24s ease,height .24s ease;
+}

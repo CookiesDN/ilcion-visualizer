@@ -1,0 +1,53 @@
+/* Design tokens (colour slots are overridden at runtime by the palette), page reset, headings, buttons. */
+
+:root {
+  --bg: #212121;
+  --pn: #171717;
+  --mt: #313131;
+  --fg: #eeeeee;
+  --pu: #7a5dc3;
+  --bl: #1b00ff;
+  --ff: ui-monospace,Menlo,Consolas,monospace;
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font: 12px var(--ff);
+}
+
+h3 {
+  font-size: .82em;
+  letter-spacing: .22em;
+  margin: 0 0 .7em;
+  color: var(--pu);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+button {
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: .14em;
+  background: var(--pu);
+  color: var(--fg);
+  border: 0;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+button.g {
+  background: var(--mt);
+}
+
+button:disabled {
+  opacity: .4;
+  cursor: default;
+}

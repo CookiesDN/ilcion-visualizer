@@ -1,0 +1,132 @@
+/* Settings panel: form controls, colour swatches, saved palettes, sliders. */
+
+.set {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: 340px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  background: var(--pn);
+  border: 1px solid var(--mt);
+  border-radius: 18px;
+  padding: 16px;
+  z-index: 70;
+  box-sizing: border-box;
+}
+
+.set[hidden] {
+  display: none;
+}
+
+.set h3 {
+  margin: 1em 0 .5em;
+}
+
+.set h3:first-child {
+  margin-top: 0;
+}
+
+.set select,
+.set input[type=number],
+.set input[type=text] {
+  background: var(--mt);
+  color: var(--fg);
+  border: 0;
+  border-radius: .8em;
+  padding: .6em;
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: .5em;
+}
+
+.cl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5em;
+}
+
+.cl label {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  font-size: .85em;
+}
+
+.cl input {
+  width: 3em;
+  height: 2.2em;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.pre {
+  display: flex;
+  gap: .5em;
+  margin-bottom: .7em;
+  flex-wrap: wrap;
+}
+
+.set button {
+  padding: .5em .9em;
+  font-size: .8em;
+  margin: 0 .4em .4em 0;
+}
+
+.pl {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  margin: .3em 0;
+  font-size: .85em;
+}
+
+.pl button {
+  margin: 0!important;
+}
+
+.sw {
+  display: flex;
+  border-radius: .4em;
+  overflow: hidden;
+}
+
+.sw i {
+  width: 1em;
+  height: 1.5em;
+  display: block;
+}
+
+.pnm {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sl {
+  display: flex;
+  align-items: center;
+  gap: .7em;
+  font-size: .85em;
+  margin: .5em 0;
+}
+
+.sl span {
+  width: 3.6em;
+}
+
+.sl input {
+  flex: 1;
+  accent-color: var(--pu);
+}
+
+.sl b {
+  width: 3.8em;
+  text-align: right;
+  font-weight: 600;
+}
