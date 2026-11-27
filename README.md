@@ -8,6 +8,10 @@ Everything runs locally in your browser. Your audio never leaves your device.
 
 **Made by ilcion** · [Support me ♥](https://cookiesdn.mystrikingly.com/)
 
+
+<img width="770" height="1025" alt="preview" src="https://github.com/user-attachments/assets/3fce63d4-4ef8-410e-9646-d13852ccb81d" /> 
+
+
 ---
 
 ## Quick start
