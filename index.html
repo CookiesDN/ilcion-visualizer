@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ILCION VISUALIZER</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/stage.css">
+  <link rel="stylesheet" href="css/widgets.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/dialogs.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <link rel="stylesheet" href="css/tempo.css">
+</head>
+<body>
+  <div id="ld">
+    <div class="lc">
+      <h3>ILCION VISUALIZER</h3>
+      <div class="lb">
+        <i id="lf"></i>
+      </div>
+      <div id="lt">LOADING ASSETS…</div>
+    </div>
+    <div class="by">MADE BY ILCION</div>
+  </div>
+  <div id="mm" class="off">
+    <div class="mc">
+      <h1>ILCION VISUALIZER</h1>
+      <p>STEMS · MIDI · CHORDS · VIDEO</p>
+      <button class="mb pr" id="mbp">PLAY</button>
+      <button class="mb" id="mbs">SETTINGS</button>
+      <a class="mb sup" href="https://cookiesdn.mystrikingly.com/" target="_blank" rel="noopener noreferrer">SUPPORT ME <span class="ht">♥</span></a>
+      <div class="by" style="position:static;margin-top:10px">MADE BY ILCION</div>
+    </div>
+  </div>
+  <div id="vp">
+    <div id="stw">
+      <div class="sq" id="sq">
+        <div class="p hd" id="w_hd">
+          <h3 id="ttl" title="Double-click to rename">UNTITLED TRACK</h3>
+          <button id="pl" disabled>▶ PLAY</button>
+          <button id="im" class="g">STEMS</button>
+          <button id="mi" class="g">MIDI</button>
+          <button id="rn" class="g">MP4</button>
+          <span><small>BPM</small><b id="bp">–</b></span>
+          <span><small>KEY</small><b id="ky">–</b></span>
+          <span><small>TIME</small><b id="tm" style="font-size:1.2em">0:00</b></span>
+          <button id="gr" class="g" title="Settings">⚙</button>
+        </div>
+        <div class="p" id="w_mn">
+          <h3>FIFTHS · SILENT METRONOME</h3>
+          <div class="cv">
+            <canvas id="mn"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p" id="w_st">
+          <h3>STEMS</h3>
+          <div class="cv">
+            <canvas id="st" style="cursor:pointer"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p" id="w_dg">
+          <h3 id=nt>NOTES</h3>
+          <div class="cv">
+            <canvas id="dg"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p" id="w_mt">
+          <h3>METERS</h3>
+          <div class="cv m2">
+            <canvas id="lb"></canvas>
+          </div>
+          <div class="r3">
+            <div class="cv">
+              <canvas id="sc"></canvas>
+            </div>
+            <div class="cv">
+              <canvas id="sp"></canvas>
+            </div>
+            <div class="cv">
+              <canvas id="vc"></canvas>
+            </div>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p" id="w_dt">
+          <h3>DOTS · 1/16</h3>
+          <div class="cv">
+            <canvas id="dt"></canvas>
+          </div>
+          <div class="k">
+            <span><i>L · R</i><b id="lr">50 · 50</b></span><span><i>LOWS</i><b id="lw">0 %</b></span><span><i>HIGHS</i><b id="hg">0 %</b></span>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_wf">
+          <h3>WAVEFORM · CLICK TO SEEK</h3>
+          <div class="cv">
+            <canvas id="wf" style="cursor:pointer"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_cs">
+          <h3>CHORD STRIP</h3>
+          <div class="cv">
+            <canvas id="cs"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_bk">
+          <h3>BPM · KEY · BAR</h3>
+          <div class="cv">
+            <canvas id="bk"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_sx">
+          <h3>SPECTRUM</h3>
+          <div class="cv">
+            <canvas id="sx"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_sm">
+          <h3>STEREOMETER</h3>
+          <select class="msel" id="smsel">
+            <option value="0">Scaled - Unipolar</option>
+            <option value="1">Scaled - Bipolar</option>
+            <option value="2">Linear - Unipolar</option>
+            <option value="3">Linear - Bipolar</option>
+            <option value="4">Lissajous</option>
+          </select>
+          <div class="cv">
+            <canvas id="sm"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_vu">
+          <h3>VU METER</h3>
+          <div class="cv">
+            <canvas id="vu"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_br">
+          <h3>BASS-REACTIVE VISUAL</h3>
+          <div class="cv">
+            <canvas id="br"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+        <div class="p off" id="w_sg">
+          <h3>SPECTROGRAM</h3>
+          <div class="cv">
+            <canvas id="sg"></canvas>
+          </div>
+          <i class="rz"></i>
+          <b class="xx">×</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="tb">
+    <button class="g" id="zo">−</button>
+    <span id="zl">100%</span>
+    <button class="g" id="zi">+</button>
+    <button class="g" id="zf">FIT</button>
+    <select id="ar">
+      <option>16:9</option>
+      <option>9:16</option>
+      <option selected>1:1</option>
+      <option>4:3</option>
+      <option>3:4</option>
+    </select>
+    <button class="g" id="ed">EDIT</button>
+    <button class="g" id="adb">+ VISUAL</button>
+    <button class="g" id="rl">RESET</button>
+    <button class="g" id="tbt">TEMPO</button>
+    <button class="g" id="mnb">MENU</button>
+  </div>
+  <div id="addm" hidden></div>
+  <div id="tp" hidden>
+    <div class="tph">
+      <h3>TEMPO</h3>
+      <button class="g" id="tcl" style="padding:6px 10px">✕</button>
+    </div>
+    <h3 class="sub">BPM CORRECTION · AUDIO UNCHANGED</h3>
+    <div class="tpv">
+      <b id="bgd">–</b><span>GRID BPM · DETECTED <span id="bgo">–</span></span>
+    </div>
+    <div class="tpr">
+      <button class="g" id="bh">÷ 2</button>
+      <button class="g" id="bx">× 2</button>
+      <button class="g" id="bz">RESET</button>
+    </div>
+    <div class="tpr">
+      <input type="number" id="bc" min="20" max="400" step="0.1" placeholder="true BPM, e.g. 80">
+      <button id="bg">SET</button>
+    </div>
+    <div class="tpr">
+      <button class="g" id="g1">« BEAT</button>
+      <button class="g" id="g2">‹ 1/16</button>
+      <button class="g" id="g3">1/16 ›</button>
+      <button class="g" id="g4">BEAT »</button>
+    </div>
+    <p class="tn">BAR 1 STARTS AT <span id="bg0">0.00</span> S · NUDGE THE GRID IF BARS FEEL OFF</p>
+    <h3 class="sub">TIME SIGNATURE</h3>
+    <div class="tpr">
+      <select id="tsel">
+        <option>2/4</option>
+        <option>3/4</option>
+        <option selected>4/4</option>
+        <option>5/4</option>
+        <option>6/8</option>
+        <option>7/8</option>
+        <option>9/8</option>
+        <option>12/8</option>
+        <option value="custom">Custom…</option>
+      </select>
+    </div>
+    <div class="tpr" id="tsc" hidden>
+      <input type="number" id="tsn" min="1" max="16" placeholder="beats">
+      <input type="number" id="tsd" min="2" max="16" step="2" placeholder="note: 2/4/8/16">
+    </div>
+    <h3 class="sub">PLAYBACK SPEED &amp; PITCH · CHANGES THE AUDIO</h3>
+    <div class="tpv">
+      <b id="tpb">–</b><span>BPM · <span id="tpr">1.00×</span> · <span id="tps">+0.0 ST</span></span>
+    </div>
+    <div class="tpr">
+      <button class="g" id="th">÷ 2</button>
+      <button class="g" id="tx">× 2</button>
+      <button class="g" id="tz">RESET</button>
+    </div>
+    <div class="tpr">
+      <input type="number" id="tc" min="10" max="1000" step="0.1" placeholder="target BPM, e.g. 110">
+      <button id="tg">SET</button>
+    </div>
+    <p id="tn" class="tn"></p>
+  </div>
+  <div class="set" id="set" hidden>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 style="margin:0">SETTINGS</h3>
+      <button class="g" id="scl" style="margin:0">CLOSE ✕</button>
+    </div>
+    <h3>FONT</h3>
+    <select id="fs"></select><button class="g" id="fu">UPLOAD FONT FILE</button><input type="file" id="ff" accept=".ttf,.otf,.woff,.woff2" hidden>
+    <h3>PALETTE</h3>
+    <div class="pre" id="pre"></div>
+    <div class="cl" id="cl"></div>
+    <input type="text" id="pt" placeholder="or paste 6 hex colors, then press Enter" style="margin-top:.7em">
+    <h3>SAVE THIS PALETTE</h3>
+    <div style="display:flex;gap:.5em">
+      <input type="text" id="pnm" placeholder="palette name" style="margin:0"><button class="g" id="ps">SAVE</button>
+    </div>
+    <h3>MY PALETTES</h3>
+    <div id="mp"></div>
+    <button class="g" id="pi">IMPORT PALETTE</button><button class="g" id="pe">EXPORT CURRENT</button><input type="file" id="pf" accept=".json,.txt,.hex,.csv,text/plain,application/json" multiple hidden>
+    <h3>STEREOMETER MODE</h3>
+    <select id="sms">
+      <option value="0">Scaled - Unipolar</option>
+      <option value="1">Scaled - Bipolar</option>
+      <option value="2">Linear - Unipolar</option>
+      <option value="3">Linear - Bipolar</option>
+      <option value="4">Lissajous</option>
+    </select>
+    <h3>SCROLL SPEED · DOUBLE-CLICK TO RESET</h3>
+    <label class="sl"><span>NOTES</span><input type="range" id="sn" min="-2" max="2" step="0.05" value="0"><b id="snv">1.00×</b></label>
+    <label class="sl"><span>DOTS</span><input type="range" id="sd" min="-2" max="2" step="0.05" value="0"><b id="sdv">1.00×</b></label>
+    <h3>MIDI CHORD OFFSET (SECONDS)</h3>
+    <input type="number" id="mo" step="0.05" value="0"><button class="g" id="mc">CLEAR MIDI</button><button class="g" id="rs">RESET ALL</button>
+    <h3>MORE</h3>
+    <button class="g" id="smm">MAIN MENU</button>
+    <a class="mb sup" style="margin-top:.6em;padding:11px;font-size:11px" href="https://cookiesdn.mystrikingly.com/" target="_blank" rel="noopener noreferrer">SUPPORT ME <span class="ht">♥</span></a>
+  </div>
+  <div id="rd" hidden>
+    <div class="dlg">
+      <h3>RENDER TO VIDEO</h3>
+      <label>RESOLUTION · WIDTH (HEIGHT FOLLOWS THE ASPECT RATIO)</label>
+      <select id="rres">
+        <option value="1080">1080 px wide</option>
+        <option value="1920">1920 px wide</option>
+        <option value="custom">Custom width…</option>
+      </select>
+      <input type="number" id="rcr" min="256" max="4096" step="2" placeholder="width in px, e.g. 1440" hidden>
+      <label>FRAME RATE</label>
+      <select id="rfps">
+        <option value="24">24 fps</option>
+        <option value="30">30 fps</option>
+        <option value="60">60 fps</option>
+        <option value="120">120 fps</option>
+        <option value="custom">Custom…</option>
+      </select>
+      <input type="number" id="rcf" min="1" max="240" placeholder="fps, e.g. 48" hidden>
+      <div id="rsum"></div>
+      <div class="rb">
+        <button id="rgo">CONFIRM &amp; START</button>
+        <button id="rno" class="g">CANCEL</button>
+      </div>
+    </div>
+  </div>
+  <div id="ov" hidden>
+    <span id="ovt"></span>
+    <button id="ovs">STOP &amp; SAVE</button>
+    <button id="ovc" class="g">CANCEL</button>
+  </div>
+  <input type="file" id="mf" multiple accept=".mid,.midi,audio/midi" hidden>
+  <input type="file" id="fi" multiple accept="audio/*,.mp3,.wav,.flac,.ogg,.m4a" hidden>
+
+  <!-- Scripts: plain classic scripts, order matters (they share one global scope). Open index.html directly, no build step. -->
+  <script src="js/config.js"></script>
+  <script src="js/texts.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dsp.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="js/midi.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/palettes.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/title.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/viewport.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/edit-mode.js"></script>
+  <script src="js/tempo.js"></script>
+  <script src="js/visuals/fifths.js"></script>
+  <script src="js/visuals/stems.js"></script>
+  <script src="js/visuals/notes.js"></script>
+  <script src="js/visuals/dots.js"></script>
+  <script src="js/visuals/meters.js"></script>
+  <script src="js/visuals/spectrum.js"></script>
+  <script src="js/visuals/stereometer.js"></script>
+  <script src="js/visuals/vu.js"></script>
+  <script src="js/visuals/bass.js"></script>
+  <script src="js/visuals/spectrogram.js"></script>
+  <script src="js/visuals/extras.js"></script>
+  <script src="js/frame.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
